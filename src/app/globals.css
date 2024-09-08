@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --main-red: #DE4646;
+  --background: #0F1117;
+  --foreground: #ffffff;
+  --main-gold: #cea80d;  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,19 +21,20 @@ body {
 }
 
 .explore-button {
-border-radius: 9999px;
-background-color: var(--main-red);
-transition: background-color 0.3s ease;
+  border-radius: 9999px;
+  background-color: var(--main-gold);
+  transition: background-color 0.3s ease;
 }
+
 .login-button {
   border-radius: 8px;
-  background-color: var(--main-red);
+  background-color: var(--main-gold);  
   transition: background-color 0.3s ease;
 }
 
 .explore-button:hover,
 .login-button:hover {
-  background-color: color-mix(in srgb, var(--main-red) 85%, white);
+  background-color: color-mix(in srgb, var(--main-gold) 85%, #0F1117);  
 }
 
 .explore-button {
@@ -64,6 +65,29 @@ transition: background-color 0.3s ease;
   }
 
   nav .nav-tab:hover {
-    @apply text-[--main-red];
+    @apply text-[--main-gold];  
   }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.fade-in-out {
+  animation: fadeInOut 2s infinite;
 }

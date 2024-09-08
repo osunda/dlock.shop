@@ -6,8 +6,8 @@ import { Navbar } from "./Navbar";
 const monda = Monda({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
-  title: "Deadlock Market",
-  description: "The Ultimate CSGO Skin Marketplace",
+  title: "Dlock.shop",
+  description: "Buy, sell, trade and view millions of deadlock skins",
 };
 
 export default function RootLayout({
