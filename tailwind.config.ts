@@ -12,9 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-    },
-  },
-  plugins: [],
+    }, 
+},
+  plugins: [require("tailwindcss-animate")],
 };
 
 export default config;

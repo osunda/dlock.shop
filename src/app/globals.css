@@ -10,7 +10,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0F1117;
     --foreground: #ededed;
   }
 }
@@ -21,7 +21,7 @@ body {
 }
 
 .explore-button {
-  border-radius: 9999px;
+  border-radius: 8px;
   background-color: var(--main-gold);
   transition: background-color 0.3s ease;
 }

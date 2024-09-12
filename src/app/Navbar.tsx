@@ -37,7 +37,7 @@ export function Navbar() {
 	}
 
 	return (
-		<nav className="fixed top-0 left-0 right-0 flex justify-between items-center w-full h-16 text-white p-2 z-50 bg-transparent">
+		<nav className="absolute top-0 left-0 right-0 flex justify-between items-center w-full h-16 text-white p-2 z-50 bg-transparent">
 			<div className="flex items-center space-x-10 ml-4">
 				<Link href="/" className="hover:cursor-pointer mr-6">
 					<Image src={dlockbanner} alt="Dlock Banner" width={180} height={60} />
