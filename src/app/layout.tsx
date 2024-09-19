@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Monda } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./Navbar";
+import Footer from "./components/Footer";
 
 const monda = Monda({ subsets: ["latin"], weight: ["400"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={monda.className}>
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

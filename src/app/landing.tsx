@@ -172,7 +172,8 @@ const Landing = () => {
           </div>
         </motion.section>
 
-        <section className="py-16 px-8 md:px-24">
+        {/* Added margin-top to create more space */}
+        <section className="py-16 px-8 md:px-24 mt-16">
           <h2 className="text-3xl font-bold text-left mb-8 text-white">What People Are Saying</h2>
           <DynamicInfiniteScroll />
         </section>
