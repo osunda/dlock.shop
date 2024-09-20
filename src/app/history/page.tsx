@@ -28,7 +28,7 @@
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="pt-8" // Increased top padding for more space
+            className="pt-24" // Increased top padding to match the Market page
           >
             <h1 className="text-3xl font-bold mb-12">Transaction History</h1> {/* Increased margin-bottom */}
             <div className="overflow-x-auto p-4"> {/* Added padding */}
