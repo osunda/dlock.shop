@@ -7,6 +7,7 @@ import brazil from '/public/Brazilian_Flag_-_round.svg.png'
 import spanish from '/public/Spain_flag_icon.svg.png'
 import dlockbanner from '/public/bannerdlock.png'
 import { useState } from "react";
+import wallet from '/public/wallet.svg'; // Make sure to add this import
 
 export function Navbar() {
 	const currencies = [
@@ -28,12 +29,19 @@ export function Navbar() {
 		{ code: 'ES', name: 'Spanish', flag: spanish },
 	];
 
-	const [openDropdown, setOpenDropdown] = useState<'language' | 'currency' | null>(null)
+	const [openDropdown, setOpenDropdown] = useState<'language' | 'currency' | 'deposit' | null>(null)
 	const [selectedCurrency, setSelectedCurrency] = useState(currencies[0])
 	const [selectedLanguage, setSelectedLanguage] = useState(languages[0])
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const [balance, setBalance] = useState(0) // Add this line to track user balance
 
-	const toggleDropdown = (dropdown: 'language' | 'currency') => {
+	const toggleDropdown = (dropdown: 'language' | 'currency' | 'deposit') => {
 		setOpenDropdown(openDropdown === dropdown ? null : dropdown)
+	}
+
+	const handleLogin = () => {
+		// In a real application, this would trigger the Steam login process
+		setIsLoggedIn(true)
 	}
 
 	return (
@@ -115,10 +123,36 @@ export function Navbar() {
 						</div>
 					)}
 				</div>
-				<button className="login-button flex items-center px-6 py-2 text-sm font-bold">
-					<Image src={steam} alt='steam' width={20} height={20} className="mr-2 invert" />
-					Login
-				</button>
+				{isLoggedIn ? (
+					<>
+						<div className="relative mr-4">
+							<button 
+								className="balance-display flex items-center px-4 py-2 text-sm font-bold bg-[#232732] rounded-md"
+								onClick={() => toggleDropdown('deposit')}
+							>
+								<Image src={wallet} alt="Wallet" width={16} height={16} className="mr-2 filter-yellow" />
+								<span className="mr-2">{selectedCurrency.symbol}{balance.toFixed(2)}</span>
+								<span className="bg-[--main-gold] text-[#232732] w-5 h-5 rounded flex items-center justify-center text-xs font-bold ml-auto">+</span>
+							</button>
+							{openDropdown === 'deposit' && (
+								<div className="absolute mt-2 w-40 bg-[#1C1F29] rounded-md shadow-lg py-1 text-gray-500">
+									<button className="w-full px-4 py-2 text-left hover:bg-gray-700 hover:text-white transition-colors duration-200">
+										Credit Card
+									</button>
+									<button className="w-full px-4 py-2 text-left hover:bg-gray-700 hover:text-white transition-colors duration-200">
+										Crypto
+									</button>
+								</div>
+							)}
+						</div>
+						<Image src="/pfp1.jpg" alt="User Avatar" width={32} height={32} className="rounded-full" />
+					</>
+				) : (
+					<button className="login-button flex items-center px-6 py-2 text-sm font-bold" onClick={handleLogin}>
+						<Image src={steam} alt='steam' width={20} height={20} className="mr-2 invert" />
+						Login
+					</button>
+				)}
 			</div>
 		</nav>
 	);
